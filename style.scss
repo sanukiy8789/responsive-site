@@ -1,0 +1,165 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #F0F0F0;
+$subColor: #302F30;
+$keyColor: #e95464;
+$fontColor: #F1DF64;
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+
+a {
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+// desktop
+@media (min-width: 769px) {
+
+  /* Base
+  ------------------------------------------------------------*/
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* header
+--------------------------------------------------------------*/
+div.top-image img {
+       width: 100%;
+       height: 250px;
+  }
+
+@media (min-width: 769px){
+
+  div.top-image img {
+       width: 100%;
+       height: 500px;
+  }
+}
+
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+  h1 {
+    text-align: center;
+    @extend .abel;
+    font-size: 3.2rem;
+    @extend .uppercase;
+  }
+}
+
+// wrapper
+#wrapper {
+  background-color: $subColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);    // スキルボックスを縦に並べる
+  }
+  h1 {
+    color: $baseColor;
+    margin-bottom: 60px;
+  }
+
+.contents-box {
+    @include flex(1);
+    margin: 10px 0;                     // 上下にマージン
+    padding: 20px;
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+  
+  h2 {
+    @extend .abel;
+    @extend .uppercase;
+    color: $keyColor;
+    margin-bottom:10px;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+}
+
+// desktop
+@media (min-width: 769px) {
+
+  // wrapper
+  #wrapper {
+    .container {
+      @include flex-direction(row);     // スキルボックスを横に並べる
+      justify-content: space-between;
+    }
+    .contents-box {
+      margin: 0 10px;                   // 左右にマージン
+    }
+  }
+}
+
+// sign_up
+#sign_up {
+    text-align: center;
+  h3 {
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin: 30px;
+  }
+  
+    
+  a {
+      text-align: center;
+      padding: 20px;
+      width: 50px;
+      height: 50px;
+      color: #FFF;
+      background-color: $keyColor;
+      @include border-radius(10%);
+      box-shadow: 0 6px #a2a2a2;
+    }
+  a:active { /*ボタンを押したとき*/
+    border-bottom: none;/*線を消す*/
+    box-shadow: none;
+    position: relative;
+    top: 6px;
+    
+}
+}
