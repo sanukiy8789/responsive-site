@@ -110,6 +110,7 @@ section {
     justify-content: space-between;
     @include flex-direction(column);    // スキルボックスを縦に並べる
     text-align: center;
+    
   }
   h1 {
     color: $baseColor;
@@ -123,6 +124,7 @@ section {
     background-color: $baseColor;
     @include border-radius(4px);
     @include box-sizing(border-box);
+    margin-bottom: 20px;
   }
   
   h2 {
